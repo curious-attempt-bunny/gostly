@@ -5,7 +5,7 @@ Gostly::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  post 'mailgun/email/receive' => 'email#post'
+  post 'mailgun/email/receive' => 'emails#post'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
