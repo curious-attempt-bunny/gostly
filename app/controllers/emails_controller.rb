@@ -14,7 +14,7 @@ class EmailsController < ApplicationController
 
     # process all attachments:
     count = params['attachment-count'].to_i
-    Rails.logger.error "Email received From #{sender}, Subject #{subject}, Body: #{body}, Attachments: #{count}"
+    Rails.logger.error "Email received From #{sender}, Subject #{subject}, Body: #{actual_body}, Attachments: #{count}"
 
     count.times do |i|
       stream = params["attachment-#{i+1}"]
