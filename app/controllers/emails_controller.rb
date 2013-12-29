@@ -1,3 +1,5 @@
+require 'images/upload'
+
 # Based on https://devcenter.heroku.com/articles/mailgun#receiving-messages-via-http
 
 class EmailsController < ApplicationController
@@ -21,6 +23,8 @@ class EmailsController < ApplicationController
       filename = stream.original_filename
       data = stream.read()
       Rails.logger.error "  Attachment #{i} Filename: #{filename}"
+      url = Images::Upload.new.upload(data)
+      Image.create!(url: url, email_from: sender, email_subject: subject) if url
     end
     render :text => "OK"
   end

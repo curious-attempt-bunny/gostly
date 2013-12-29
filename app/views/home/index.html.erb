@@ -1,1 +1,5 @@
 <p>Here we are!</p>
+<ul>
+<%- @images.each do |image| %>
+<li><%= image.inspect %></li>
+<%- end %>
