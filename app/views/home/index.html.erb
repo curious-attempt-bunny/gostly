@@ -1,5 +1,16 @@
-<p>Here we are!</p>
+<h1>Gostly!</h1>
+<p><a href="mailto:test@app20077437.mailgun.org">Email your Go photo!</a></p>
 <ul>
-<%- @images.each do |image| %>
-<li><%= image.inspect %></li>
-<%- end %>
+  <%- @images.each do |image| %>
+  <li>
+    <p><%= image.email_from %>:</p>
+    <%- if image.url %>
+      <a href="<%= image.url %>">
+        <img src="<%= image.url %>" style="width: 120px;">
+      </a>
+    <%- else %>
+      No image attached.
+    <%- end %>
+  </li>
+  <%- end %>
+</ul>
