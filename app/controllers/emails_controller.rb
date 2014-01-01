@@ -7,7 +7,7 @@ class EmailsController < ApplicationController
     sender      = params['sender']
     subject     = params['Subject']
     body        = params["stripped-text"]
-    attachments = params["attachments"]
+    attachments = JSON.parse(params["attachments"])
 
     Rails.logger.error "Email received From #{sender}, Subject #{subject}, Body: #{body}, Attachments: #{attachments.size}"
 
